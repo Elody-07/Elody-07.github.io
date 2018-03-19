@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="《信息检索导论》学习笔记——第1章"><meta name="keywords" content="笔记"><meta name="author" content="Elody,undefined"><meta name="copyright" content="Elody"><title>《信息检索导论》学习笔记——第1章 | Elody的博客</title><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.0"><script>var GLOBAL = { 
+  root: '/',
+  algolia: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  localSearch: undefined
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第1章-布尔检索"><span class="toc-number">2.</span> <span class="toc-text">第1章 布尔检索</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-一个信息检索的例子"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 一个信息检索的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-构建倒排索引的初体验"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 构建倒排索引的初体验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-布尔查询的处理"><span class="toc-number">2.3.</span> <span class="toc-text">1.3 布尔查询的处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-对基本布尔操作的扩展及有序检索"><span class="toc-number">2.4.</span> <span class="toc-text">1.4 对基本布尔操作的扩展及有序检索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结"><span class="toc-number">2.5.</span> <span class="toc-text">小结</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://ws1.sinaimg.cn/large/006lJSqNly1fpcjnnouayj30dv0dw3zv"></div><div class="author-info__name text-center">Elody</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">4</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">4</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">4</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://ws1.sinaimg.cn/large/006lJSqNly1fpi3ub70j1j31hc0u0whs.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Elody的博客</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">《信息检索导论》学习笔记——第1章</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-03-19</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/笔记/">笔记</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div id="post-content"><blockquote>
+<p>最近尝试入门文本处理，导师推荐了《信息检索导论》（王斌译）这本书。我看书习惯把课本上我认为较为重点的部分和自己看书时的疑问记下来，开了博客后就想着把这些笔记分享出来供需要的人借鉴，同时也算记录自己的学习、成长过程。有不足之处还请多多宽容，多多指教~</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本书前8章介绍信息检索的基础知识，特别是搜索引擎的核心理论。第1章（布尔检索）主要介绍<strong>倒排索引</strong>，并说明如何通过这种索引实现简单的布尔查询；第2章（词项词典及倒排记录表）介绍索引之前的<strong>文档预处理过程</strong>，并讨论在不同的功能和速度要求下对倒排索引进行改进的方法；第3章（词典及容错式搜索）主要介绍<strong>词典搜索的数据结构</strong>，并给出查询存在拼写错误或者与被搜索的文档中的词汇不能精确匹配时的处理方法；第4章（索引构建）主要介绍基于文本集合<strong>构建倒排索引</strong>的几个算法 ，这类算法适用于大规模文档集的索引构建；第5章（索引压缩）主要介绍<strong>倒排索引的压缩技术</strong>，包括词典的压缩和倒排记录表的压缩技术，这些技术对于实现大型搜索引擎的亚秒级查询响应十分关键。前五章中介绍的索引和查询<strong>仅针对布尔检索</strong>，即一篇文档和查询要么匹配，要么不匹配。那么如何度量查询和文档的<strong>匹配程度</strong>呢？对这个问题的回答构成了第6、7章（文档评分、词项权重计算及向量空间模型&amp;一个完整搜索系统中的评分计算）词项权重计算和评分算法的主要内容；第8章（信息检索的评价）主要介绍<strong>信息检索系统的评价技术</strong>，即根据检索系统返回结果的相关性对不同系统进行评价，从而可以在<em>基准文档集</em>和查询上对不同系统的性能进行比较。</p>
+<hr>
+<h2 id="第1章-布尔检索"><a href="#第1章-布尔检索" class="headerlink" title="第1章 布尔检索"></a>第1章 布尔检索</h2><blockquote>
+<p>信息检索是从大规模非结构化数据（通常是文本）的集合（通常保存在计算机上）中找出满足用户信息需求的资料（通常是文档）的过程。</p>
+</blockquote>
+<p>分类（classification）已知文档内容所属的类别集合，而聚类（clustering）未知。</p>
+<h3 id="1-1-一个信息检索的例子"><a href="#1-1-一个信息检索的例子" class="headerlink" title="1.1 一个信息检索的例子"></a>1.1 一个信息检索的例子</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">术语</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">文档</td>
+<td style="text-align:center">检索系统的检查对象</td>
+</tr>
+<tr>
+<td style="text-align:center">文档集/语料库</td>
+<td style="text-align:center">所有的文档组成的集合</td>
+</tr>
+<tr>
+<td style="text-align:center">ad hoc检索任务</td>
+<td style="text-align:center">信息需求动态变化，而文档集相对静止，如Web搜索引擎</td>
+</tr>
+<tr>
+<td style="text-align:center">过滤任务</td>
+<td style="text-align:center">信息需求在一段时间内不变，而文档集则变化频繁，如信息订阅</td>
+</tr>
+<tr>
+<td style="text-align:center">正确率（precision）</td>
+<td style="text-align:center">返回的结果中真正和信息需求相关的文档所占的百分比</td>
+</tr>
+<tr>
+<td style="text-align:center">召回率（recall）</td>
+<td style="text-align:center">所有和信息需求真正相关的文档中被检索系统返回的百分比</td>
+</tr>
+<tr>
+<td style="text-align:center">文档频率</td>
+<td style="text-align:center">出现某个词项的文档数目</td>
+</tr>
+<tr>
+<td style="text-align:center">词项频率</td>
+<td style="text-align:center">词项在某个文档中出现的次数</td>
+</tr>
+</tbody>
+</table>
+<p>线性扫描方式（greeping）：用于小规模文档集，不需要做额外的处理。</p>
+<p>非线性扫描方式（布尔检索模型）：事先给文档建立索引（index），对每篇文档都事先记录它是否包含词表中的某个词，得到一个由布尔值构成的<strong>词项-文档关联矩阵</strong>（该矩阵由布尔值0、1构成）。<strong>布尔检索模型</strong>接受布尔表达式查询，即通过AND、OR及NOT等逻辑操作符将词项连接起来的查询。在该模型下，每篇文档只被看成是一系列词的集合。</p>
+<p>但是当文档数量增大，词项-文档矩阵为稀疏矩阵，矩阵中的大部分元素为0，此时只记录原始矩阵中1的位置的表示方法比词项-文档矩阵效果更好。这种思路引出信息检索中的一个核心概念——<strong>倒排索引</strong>（inverted index）。</p>
+<p>倒排索引的两个部分：</p>
+<p>左部为<em>（词项）词典（dictionary）</em>，每个词项都有一个记录出现该词项的所有文档的列表，这个表中的每个元素称为<em>倒排记录（posting）</em>，每个词项对应的整个表称为<em>倒排（记录）表</em>，所有词项的倒排记录表一起构成<em>全体倒排记录表（postings）</em>。一般地，提到倒排记录时，采用（词项，文档ID）这种二元组的表示方法。</p>
+<p>倒排索引的两个部分中，词典部分往往放在内存中，而指针指向的每个倒排记录往往存放在磁盘上。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006lJSqNly1fpiep8m7bij30bc0b5jrz.jpg" alt=""></p>
+<h3 id="1-2-构建倒排索引的初体验"><a href="#1-2-构建倒排索引的初体验" class="headerlink" title="1.2 构建倒排索引的初体验"></a>1.2 构建倒排索引的初体验</h3><p>建立索引的主要步骤：</p>
+<ol>
+<li><p>收集需要建立索引的文档。如：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006lJSqNly1fpieql38mcj30dq016gle.jpg" alt=""> </p>
+</li>
+<li><p>词条化（tokenization）：将每篇文档转换成一个个词条的列表。如：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006lJSqNly1fpiesmmk5tj309x0160si.jpg" alt=""> </p>
+</li>
+<li><p>进行语言学预处理，产生归一化的词条来作为词项。如：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006lJSqNly1fpietkm8slj309u016t8h.jpg" alt=""> </p>
+</li>
+<li><p>对所有文档按照其中出现的词项来建立倒排索引，索引中包括一部词典和一个全体倒排记录表。</p>
+</li>
+</ol>
+<p>基于排序的索引构建方法（sort-based indexing）：每篇文档的所有词项加上文档ID → 二元组（词项，文档ID）按照词项字母顺序排序 →  同一词项进行合并 → 将词项和文档ID分开，词项存储在词典中，每个词项有一个指针指向倒排记录表。词典中还会存储一些其他概要信息，如每个词项的<em>文档频率（document frequency）</em>。同样地，每个倒排记录表也可以存储<em>词项频率（term frequency）</em>。</p>
+<h3 id="1-3-布尔查询的处理"><a href="#1-3-布尔查询的处理" class="headerlink" title="1.3 布尔查询的处理"></a>1.3 布尔查询的处理</h3><p>使用倒排索引和基本布尔检查模型处理一个查询，以一个简单“与”查询为例：Brutus AND Calpurnia</p>
+<ol>
+<li>在词典中定位Brutus，返回其倒排记录表；</li>
+<li>在词典中定位Calpurnia，返回其倒排记录表；</li>
+<li>对两个倒排记录表求交集。</li>
+</ol>
+<p>其中，<em>交集（intersection）</em>操作很关键，算法如下：</p>
+<p>假设两个倒排记录表的大小分别是$x$和$y$，那么下述求交集的过程需要$O(x+y)$ 次操作。即查询的时间复杂度为$O(N)$，其中N是文档集合中文档的数目。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">INTERSECT(p1,p2) //p1,p2为指针</div><div class="line">1 ANSWER ← &lt;&gt;</div><div class="line">2 while p1 ≠ NIL and p2 ≠ NIL</div><div class="line">3 do if docID(p1) = docID(p2)</div><div class="line">4 		then ADD(answer,docID(p1))</div><div class="line">5			p1 ← next(p1)</div><div class="line">6		 	p2 ← next(p2)</div><div class="line">7		else if docID(p1) &lt; docID(p2)</div><div class="line">8				then p1 ← next(p1)</div><div class="line">9				else p2 ← next(p2)</div><div class="line">10 return answer</div></pre></td></tr></table></figure>
+<p><em>查询优化（query optimization）</em> ：指通过组织查询的处理过程使处理工作量最小。对布尔查询进行优化要考虑的一个主要因素是倒排记录表的访问顺序。按照词项的文档频率（即倒排记录表的长度）从小到大依次处理，如果我们先合并两个最短的倒排记录表，那么所有中间结果的大小都不会超过最短的倒排记录表（原理：多个集合的交集元素个数肯定不大于其中任何一个集合的元素个数），这样处理所需要的工作量最少。</p>
+<p>在这里词项的文档频率可以在访问之前决定倒排记录表的访问次序。</p>
+<p>查询优化算法如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">INTERSECT(&lt;t1,t2,...,tn&gt;)</div><div class="line"><span class="number">1</span> terms ← SORTBYINCREASEINGFREQUENCY(&lt;t1,t2,...,tn&gt;)</div><div class="line"><span class="number">2</span> result ← postings(first(terms))</div><div class="line"><span class="number">3</span> terms ← rest(terms)</div><div class="line"><span class="number">4</span> <span class="keyword">while</span> terms ≠ NIL and result ≠ NIL</div><div class="line"><span class="number">5</span> <span class="keyword">do</span> result ← INTERSECT(result,postings(first(terms)))</div><div class="line"><span class="number">6</span>    terms ← rest(terms)</div><div class="line"><span class="number">7</span> <span class="keyword">return</span> result</div></pre></td></tr></table></figure>
+<p>当倒排记录表的长度相差很大时，可以使用一些策略加速合并过程。如对于中间结果表，合并算法可以就地对失效元素进行二分查找。或者将长倒排记录表用哈希方式存储。</p>
+<h3 id="1-4-对基本布尔操作的扩展及有序检索"><a href="#1-4-对基本布尔操作的扩展及有序检索" class="headerlink" title="1.4 对基本布尔操作的扩展及有序检索"></a>1.4 对基本布尔操作的扩展及有序检索</h3><p>和布尔检索模型相对的是<em>排序检索模型或有序检索模型（ranked retrieval model）</em>，后者是采用一个或者多个词来构成<em>自由文本查询（free text query）</em>。有序检索系统要能够确定哪篇文档<strong>最能</strong>满足用户的需求。</p>
+<p>布尔查询表达上更精确，为搜索专家所喜欢，但大部分用户很少使用。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>第1章介绍了基本倒排索引的结构和构建，整个索引包含词典和倒排记录表两部分；介绍了布尔检索模型，并考察了通过线性时间复杂度的合并方法和简单的查询优化方法进行高效检索。</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Elody</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://Elody-07.github.io/信息检索导论 笔记 前言&amp;第1章/">http://Elody-07.github.io/信息检索导论 笔记 前言&amp;第1章/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Elody-07.github.io" target="_blank">Elody的博客</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/笔记/">笔记</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/选修课分享/"><i class="fa fa-chevron-left">  </i><span>北邮通信工程专业选修课心得分享</span></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2017 - 2018 By Elody</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.5.0"></script><script src="/js/fancybox.js?version=1.5.0"></script><script src="/js/sidebar.js?version=1.5.0"></script><script src="/js/copy.js?version=1.5.0"></script><script src="/js/fireworks.js?version=1.5.0"></script><script src="/js/transition.js?version=1.5.0"></script><script src="/js/scroll.js?version=1.5.0"></script><script src="/js/head.js?version=1.5.0"></script></body></html>
