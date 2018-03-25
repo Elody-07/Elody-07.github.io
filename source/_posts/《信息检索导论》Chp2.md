@@ -181,16 +181,17 @@ POSITIONAL INTERSECT(p1, p2, k)
             	pp2 ← positions(p2)
             	while pp1 ≠ NIL
             		while pp2 ≠ NIL
-            			if |pos(pp1)-pos(pps)| ≤ k
+            			if |pos(pp1)-pos(pp2)| ≤ k
             				then ADD(l, pos(pp2))
                          else if pos(pp2) > pos(pp1)
                              then break
                          pp2 ← next(pp2)
-                     while l ≠ <> and |l[0]-pos(pp1)>k|
-                         DELETE(l[0])
+                     while l ≠ <> and |l[0]-pos(pp1)>k| //(*)
+                         DELETE(l[0]) //(*)
                      for each ps ∈ l
                      	ADD(answer, <docID(p1),pos(pp1),ps>)
-                         pp1 ← next(pp1)
+                     pp1 ← next(pp1)
+                     //l ← <>可以替换(*)部分
                  p1 ← next(p1)
                  p2 ← next(p2)
           else if docID(p1) < docID(p2)
