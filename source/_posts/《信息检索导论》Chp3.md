@@ -1,7 +1,7 @@
 title: 《信息检索导论》学习笔记——第3章
 tags: 
 - 文本处理
-  categories: 
+categories: 
 - 笔记
 date: 2018-3-30
 ---
