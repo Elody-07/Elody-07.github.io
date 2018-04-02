@@ -21,7 +21,7 @@ date: 2018-4-2
 
 **opencv_contrib的版本一定要和opencv相同！！！**
 
-![52258722309](C:\Users\Melody\AppData\Local\Temp\1522587223095.png)
+![](https://ws1.sinaimg.cn/large/006lJSqNly1fpyg1f33rcj30fw09wdg0.jpg)
 
 #### 4. [cmake](https://cmake.org/download/)
 
