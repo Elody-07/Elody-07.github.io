@@ -22,6 +22,17 @@ See demo:
 * [zouyaoji's Blog](https://zouyaoji.top/)
 * [flytreeleft's Blog](https://flytreeleft.org/)
 * [StaunchKai](http://staunchkai.com/)
+* [Crystalwindz's Blog](http://crystalwindz.com/)
+* [霪霖笙箫的博客](https://fridolph.github.io/)
+* [upupming 的博客](https://upupming.site/)
+* [徒然の博客](http://techotaku.me/)
+* [清白之年](https://www.wangfan.site/)
+* [sphc's blog](https://jkuvw.xyz/)
+* [HibisciDai's blog](https://hibiscidai.com/)
+* [李牧羊](https://www.limuyang.cc/)
+* [「Zeech」](http://zcheng.ren/)
+
+If you are using `theme-melody` and want to be shown to others like above, please write down your site in this [issue](https://github.com/Molunerfinn/hexo-theme-melody/issues/1)!
 
 # Documentation
 

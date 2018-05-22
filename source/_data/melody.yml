@@ -162,7 +162,7 @@ disqus:
   #count: true
 
 laibili:
-  enable: true 
+  enable: false 
   uid: MTAyMC8zNTA0NS8xMTU4MQ== 
 
 # gitment
@@ -172,13 +172,13 @@ laibili:
   # client_id: 
   # client_secret: 
 
-# gitalk:
-#   enable: false
-#   client_id: 
-#   client_secret: 
-#   repo:
-#   owner:
-#   admin:
+gitalk:
+  enable: true
+  client_id: 469ba2f7e3f141d184ef
+  client_secret: fe7f8e6e553f4455b9c8acfce3b30e35c0e1c9e6
+  repo: Elody-07.github.io
+  owner: Elody-07
+  admin: Elody-07
 
 # valine comment system. https://valine.js.org
 # valine:
