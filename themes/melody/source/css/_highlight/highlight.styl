@@ -1,12 +1,26 @@
-// https://github.com/chriskempson/tomorrow-theme
+// https://github.com/equinusocio/vsc-material-theme
 @require "theme"
 @require "diff"
+
+languages = "js" "javascript" "python" "ruby" "xml" "html" "css" "perl" "sql" "coffeescript" "java" "scala" "kotlin" "c" "c++" "go" "less" "sass" "scss" "stylus" "styl" "typescript"
+
+loopForLanguages()
+  for lang in languages
+    .article-container
+      figure.highlight
+        &{"." + lang}
+          table
+            &:before
+              content: lang
+
+loopForLanguages()
 
 // Placeholder: $code-block
 $code-block
   overflow: auto
   margin: 1rem 0
   padding: 0
+  padding-top: 1.4rem
   background: $highlight-background
   color: $highlight-foreground
   font-size: $code-font-size
@@ -51,10 +65,41 @@ blockquote
       padding: 8px 0
       border: none
 
+    .line
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
+
     table
+      position: relative
       margin: 0
+      min-width: 100%
       width: auto
       border: none
+
+      &:before
+        position: fixed
+        right: 0
+        left: 0
+        z-index: 1
+        display: inline-block
+        margin-top: -1.4rem
+        padding: 0 0.7rem
+        width: 5rem
+        color: $highlight-foreground
+        content: "Code"
+        font-weight: bold
+        font-size: 0.8rem
+        line-height: 1.4rem
+
+      &:after
+        position: absolute
+        top: -1.4rem
+        z-index: 0
+        width: 100%
+        height: 1.4rem
+        background: darken($highlight-background, 5)
+        content: ""
 
     td
       padding: 0
@@ -116,6 +161,10 @@ blockquote
     .comment
       color: $highlight-comment
 
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
+
     .variable,
     .attribute,
     .regexp,
@@ -130,8 +179,16 @@ blockquote
     .css .pseudo
       color: $highlight-red
 
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
+
     .tag
       color: $highlight-aqua
+
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
 
     .number,
     .preprocessor,
@@ -141,8 +198,16 @@ blockquote
     .command
       color: $highlight-orange
 
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
+
     .built_in
       color: $highlight-yellow
+
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
 
     .ruby .class .title,
     .css .rules .attribute,
@@ -157,10 +222,18 @@ blockquote
     .formula
       color: $highlight-green
 
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
+
     .keyword,
     .title,
     .css .hexcolor
       color: $highlight-aqua
+
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
 
     .function,
     .python .decorator,
@@ -172,6 +245,14 @@ blockquote
     .coffeescript .title
       color: $highlight-blue
 
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
+
     .tag .attr,
     .javascript .function
       color: $highlight-purple
+
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
