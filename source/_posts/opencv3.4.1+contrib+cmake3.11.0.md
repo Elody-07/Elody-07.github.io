@@ -124,7 +124,7 @@ date: 2018-4-2
 **2. VC++目录-库目录**
 
 ```
-<where to build the binaries中设置的路径>\install\x64\vc14\bin
+<where to build the binaries中设置的路径>\install\x64\vc14\lib
 ```
 
 ![](https://ws1.sinaimg.cn/large/006lJSqNly1fpyf1xt3nqj30oh0ghgmr.jpg)
