@@ -1,7 +1,7 @@
 title: 保研历程&2018总结
 tags: 
   - 分享
-categories:
+categories: 
   - 总结
 date: 2019-1-2
 ---
