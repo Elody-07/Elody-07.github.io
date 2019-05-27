@@ -95,9 +95,9 @@ cdn:
 
 # Post info settings
 # ---------------
-avatar: https://ws1.sinaimg.cn/large/006lJSqNly1fpcjnnouayj30dv0dw3zv
+avatar: https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527143428.png
 
-top_img: https://ws1.sinaimg.cn/large/006lJSqNly1fpi3ub70j1j31hc0u0whs.jpg 
+top_img: https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527143630.png 
 
 post_meta:
   date_type: created # created or updated 
