@@ -15,19 +15,19 @@ date: 2018-4-2
 
 #### 2. [opencv3.4.1](https://sourceforge.net/projects/opencvlibrary/files/opencv-win/)
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpxg5lug5tj30sg0bxgm7.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142221.png)
 
 #### 3. [opencv_contrib](https://github.com/opencv/opencv_contrib/releases)
 
 **opencv_contrib的版本一定要和opencv相同！！！**
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpyg1f33rcj30fw09wdg0.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142528.png)
 
 #### 4. [cmake](https://cmake.org/download/)
 
 选择Binary distributions是它已经编译好了的cmake，根据自己的计算机和VS位数选择对应版本，我的是win10 64位，VS2015 64位
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpxgfs0fckj30x60cr0u7.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142545.png)
 
 #### 5. VS2015（我的是64位的community版本）
 
@@ -35,7 +35,7 @@ date: 2018-4-2
 
 #### 1. 在opencv文件夹下新建一个mybuild文件夹（命名任意），存放我们的编译结果 
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpxgc741ugj30iu06hq38.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142604.png)
 
 #### 2. 安装cmake，打开bin目录下的cmake-gui.exe
 
@@ -45,7 +45,7 @@ date: 2018-4-2
 
 点击Configure选择对应自己电脑上的VS版本的编译器，**对于VS2015来说，32位的选择Visual Studio 14 2015，64位的选择Visual Studio 14 2015 Win64，点击finish后自动进行第一次编译**
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpxgiyneiqj30j10gsaab.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142629.png)
 
 #### 3. 第二次编译
 
@@ -53,19 +53,19 @@ date: 2018-4-2
 
 **第二次编译完后一定要检查一下参数列表，如果参数列表还有红色标记的条目，就再尝试几次configure，直到所有条目都是白色为止。**
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpxj3z92ixj30j00h074n.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142705.png)
 
 #### 4. 点击Generate，直到出现Generate Done
 
 这时候在我们的mybuild文件夹下可以看到编译出的文件。
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpxje6ty0uj30iy0gugm8.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142726.png)
 
 #### 5. 检查一下附加模版是否成功编译并加入到opencv中
 
 进入之前我们新建的mybuild文件夹下，进入modules，查看是否有下图所示的文件，这些是属于附加模块opencv_contrib的。如果没有，检查一下cmake参数列表中Name为OPENCV_EXTRA_MODULES_PATH的Value是否为opencv_contrib-3.0.0的路径/modules，不是的话重新设置、重新Configure以及重新Generate。
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpycdnbzkuj30p90i1762.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142743.png)
 
 ### 三、生成库文件
 
@@ -75,9 +75,9 @@ date: 2018-4-2
 
 生成成功后，如果在mybuild文件夹中还没有出现一个名为install的文件夹，回到VS界面，右击INSTALL->仅用于项目->仅生成INSTALL，再次生成成功后就会出现install文件夹。
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpyciri41lj309n07mq31.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142759.png)
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpyct37ey9j30h70610t2.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142811.png)
 
 **问题：无法打开文件‘python27_d.lib' && 无法打开文件‘python36_d.lib'**
 
@@ -85,13 +85,13 @@ date: 2018-4-2
 
 原因是我之前在电脑上安装了Anaconda2和Anaconda3，openCV用Cmake编译时都检测到了。解决方法是分别打开python2和python3对应的pyconfig.h文件，做两处修改。
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpyen7aq0nj30er018dfo.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142829.png)
 
 如python2对应的pyconfig.h：
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpyerx9si5j30hs083abb.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142838.png)
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpyer4fzhij306d01rt8l.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142854.png)
 
 如果python3对应的也有问题的话也将其对应的pyconfig.h做以上修改。
 
@@ -103,7 +103,7 @@ date: 2018-4-2
 
 **注意：如果是32位的VS的话，路径应该是where to build the binaries中设置的路径\install\x86\vc14\bin**
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpyex7i8nwj30en0fnwfd.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142904.png)
 
 #### 2. 配置新的工程
 
@@ -111,7 +111,7 @@ date: 2018-4-2
 
 找到属性管理器->Debug|x64->右击Microsoft.Cpp.x64.user->属性
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpyezsk5pcj30e209q0t6.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142921.png)
 
 **1. VC++目录-包含目录**
 
@@ -127,11 +127,11 @@ date: 2018-4-2
 <where to build the binaries中设置的路径>\install\x64\vc14\lib
 ```
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpyf1xt3nqj30oh0ghgmr.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142931.png)
 
 **3. 链接器-输入-附加依赖项**
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpyfe0qpagj30oe0ghq3x.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142947.png)
 
 这里添加的.lib文件都需要出现在`<where to build the binaries中设置的路径>\install\x64\vc14\lib` 中。如果lib文件被添加到附加依赖项里，但是上述文件夹中没有该lib文件，会出现找不到XXX.lib的错误。
 
@@ -205,6 +205,6 @@ using namespace cv;
 	}
 ```
 
-![](https://ws1.sinaimg.cn/large/006lJSqNly1fpyfp73afrj311y0k7thn.jpg)
+![](https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527142959.png)
 
 Well Done！
