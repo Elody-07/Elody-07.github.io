@@ -1,3 +1,4 @@
+---
 title: Win10+vs2015+opencv3.4.1+附加模块opencv_contrib+cmake3.11.0编译和配置
 tags: 
   - opencv
@@ -5,7 +6,7 @@ categories:
   - 教程
 date: 2018-4-2
 ---
-> 最近在做基于opencv的课设项目，参考了很多篇教程，retry了很多次，想写一篇博客给后来人提个醒~我的编译和配置过程大多数参考[这篇文章](https://blog.csdn.net/chentravelling/article/details/59540828)。
+> 最近在做基于opencv的课设项目，参考了很多篇教程，retry了很多次。我的编译和配置过程大多数参考[这篇文章](https://blog.csdn.net/chentravelling/article/details/59540828)。
 
 <!--more-->
 
