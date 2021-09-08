@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="AWR：用于3D手部姿态估计的自适应加权学习方法 | AAAI2020论文解读"><meta name="keywords" content="AWR,AAAI2020"><meta name="author" content="Elody"><meta name="copyright" content="Elody"><title>AWR：用于3D手部姿态估计的自适应加权学习方法 | AAAI2020论文解读 | Elody的博客</title><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.5.6"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.5.6"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.2/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-背景和研究动机"><span class="toc-text">1. 背景和研究动机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-AWR-自适应加权回归模块"><span class="toc-text">2. AWR 自适应加权回归模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-实验结果"><span class="toc-text">3. 实验结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-AWR作用于不同稠密特征类型的效果"><span class="toc-text">1. AWR作用于不同稠密特征类型的效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-AWR作用于不同输入模态的效果"><span class="toc-text">2. AWR作用于不同输入模态的效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-其他实验设置"><span class="toc-text">3. 其他实验设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-对比实验"><span class="toc-text">4. 对比实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-总结"><span class="toc-text">4. 总结</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527143428.png"></div><div class="author-info__name text-center">Elody</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">9</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">13</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">5</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527143630.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Elody的博客</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">AWR：用于3D手部姿态估计的自适应加权学习方法 | AAAI2020论文解读</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-07-06</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/分享/">分享</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+<p>本文设计实现了一个可导的自适应加权模块(Adaptive Weighting Regression, AWR)对网络预测的稠密特征进行信息聚合，是一个参数少、精确且低时延的手部姿态估计方案。论文验证了AWR对于多种稠密特征类型、不同输入空间的有效性，并在多个数据集上领先。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="1-背景和研究动机"><a href="#1-背景和研究动机" class="headerlink" title="1. 背景和研究动机"></a>1. 背景和研究动机</h2><p><img src="https://cdn.jsdelivr.net/gh/Elody-07/PicBed/20200706184422.png" alt></p>
+<p> 随着深度学习的发展和人机交互方式变革，手部3D姿态估计已经逐渐成为虚拟现实、增强现实等领域的关键技术。自从商用深度摄像头投入市场后，姿态估计的精度和速度有了大幅度提升，但是要想达到准确且鲁棒的估计效果，还需要解决深度图的深度缺失、手的自遮挡和指间的自相似性等问题。</p>
+<p> 手部3D姿态估计问题可以归类于关键点回归任务，目前主流的关键点回归方法可以分为两种：基于回归的方法和基于检测的方法。（1）基于回归的方法直接学习从深度图到输出关节点坐标的映射，可以端到端训练。这类方法通常在网络输出层用全连接层聚合特征图上每个像素点的信息，用于推导关节点坐标，这样可以捕捉全局信息，但是丢失了特征图上的空间信息；（2）基于检测的方法通常预测关节点的稠密特征，如高斯热图，其上每个像素点代表这个点是关节点的概率，然后用argmax找出峰值对应的索引即为关节点位置。这类方法一般采用全卷积的网络结构，能够保持手的空间结构，但是从高斯热图推导关节点坐标的argmax操作是不可导的，因此不能端到端训练，并且当高斯热图的尺寸小于输入尺寸时，存在量化误差。</p>
+<p> <img src="https://cdn.jsdelivr.net/gh/Elody-07/PicBed/20200706185454.png" alt></p>
+<p>针对以上两种方法存在的优缺点，我们设计了一个自适应加权模块（Adaptive Weighting Regression，简称AWR），通过一种可导的信息聚合方式，在权重图的指导下，自适应地选择聚合信息的范围，从稠密特征中恢复关节点位置。AWR模块将稠密特征和关节点位置结合在一起，在不增加额外参数和计算量的前提下，使网络可以端到端训练，同时具备高准确性和高鲁棒性。</p>
+<h2 id="2-AWR-自适应加权回归模块"><a href="#2-AWR-自适应加权回归模块" class="headerlink" title="2. AWR 自适应加权回归模块"></a>2. AWR 自适应加权回归模块</h2><p>常用的稠密特征有高斯热图（Heatmap）和偏置向量场（Offset field）两种，如下图所示。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Elody-07/PicBed/20200706185558.png" alt></p>
+<p>AWR利用权重图对稠密特征的信息进行聚合，这个权重图可以是稠密特征里自带的，例如高斯热图本身和偏置向量场中的closeness热图。如下式，AWR首先对权重图进行归一化，再利用归一化后的权重图对稠密特征图上每个像素点恢复出的关节点坐标进行加权。对于高斯热图来说，每个像素值表示其为关节点的概率，这个概率描述了这个像素值对最终关节点位置推导的贡献，将高斯热图上每个像素点的贡献加权得到的即为关节点坐标；对于偏置向量场来说，每个像素值的坐标加其相对关节点的偏移向量就是关节点坐标，利用归一化后的权重图加权亦可得到关节点坐标。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Elody-07/PicBed/20200706185621.png" alt></p>
+<p>网络训练时先用dense loss训练，使权重图收敛到对应的关节点附近，再用关节点joint loss进行finetune，使权重图在遇到关节点遮挡、关节点间存在自相似性等复杂情况时，权重可以发散到相邻的关节点，利用全局信息推导关节点坐标。这样使得网络对各类情况都具备鲁棒性。如下图所示食指指尖的权重图，当关节点正常可见时（第一行），AWR方法得到的权重图和传统基于检测的方法一致，但当关节点被遮挡（第二行）或附近有相似的关节点（第三行）时，权重能发散到相邻的关节点，预测的结果也更为准确。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Elody-07/PicBed/20200706185649.png" alt></p>
+<h2 id="3-实验结果"><a href="#3-实验结果" class="headerlink" title="3. 实验结果"></a>3. 实验结果</h2><h3 id="1-AWR作用于不同稠密特征类型的效果"><a href="#1-AWR作用于不同稠密特征类型的效果" class="headerlink" title="1. AWR作用于不同稠密特征类型的效果"></a>1. AWR作用于不同稠密特征类型的效果</h3><p>如下面的表格所示，Regress表示直接用Resnet回归关节点坐标，Pose是三通道的特征，每个通道重复关节点的x，y，z坐标，其监督实质上是关节点坐标，与Regress一致。Dense、Joint分别表示在网络训练过程中分别只使用dense loss或只使用joint loss。</p>
+<p>从这个表格中我们可以归纳出以下几点结论：AWR方法能够提高网络的准确性和鲁棒性；由Joint一列可看出，加入中间层稠密特征和信息聚合步骤后，即便没有赋予稠密特征以实际意义（没有监督），其效果仍比直接回归关节点坐标（Regress）好；预测pixel-wise关节点坐标比直接回归关节点坐标效果差（Pose_Dense &lt; Regress），但使用权重图进行信息聚合后，效果大幅度提升（Pose_Joint &gt; Regress, Pose_Ours &gt; Regress）；由于偏置向量场能充分利用深度图中的空间位置信息，编码手的几何结构，所以带offset的表征优于高斯热图表征。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Elody-07/PicBed/20200706185730.png" alt></p>
+<h3 id="2-AWR作用于不同输入模态的效果"><a href="#2-AWR作用于不同输入模态的效果" class="headerlink" title="2. AWR作用于不同输入模态的效果"></a>2. AWR作用于不同输入模态的效果</h3><p>将深度图分别转换成体元素（Voxels）和点云（Point clouds），可以看出AWR对于不同的输入空间均有效。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Elody-07/PicBed/20200706185845.png" alt></p>
+<h3 id="3-其他实验设置"><a href="#3-其他实验设置" class="headerlink" title="3. 其他实验设置"></a>3. 其他实验设置</h3><p>下面表格所示是AWR在不同网络深度（Resnet18、Resnet50、Resnet101）、不同网络结构（Resnet、Hourglass）以及输入、特征尺寸等实验设置下的效果，可以看出AWR能在不增加网络参数量的前提下提高估计结果的准确率。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Elody-07/PicBed/20200706185925.png" alt></p>
+<h3 id="4-对比实验"><a href="#4-对比实验" class="headerlink" title="4. 对比实验"></a>4. 对比实验</h3><p>我们在四个公开手部数据集（HANDS 2017、NYU、ICVL和MSRA）上与其他前沿方法做了对比，可以看出AWR无论在准确率（平均关节点误差）还是鲁棒性（最差关节点帧通过率）能达到state-of-the-art的效果。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Elody-07/PicBed/20200706190023.png" alt></p>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>我们提出了用于3D手部姿态估计的自适应加权回归方法（AWR），它兼具了基于回归和基于检测方法的优点，利用可导的信息聚合的方法统一了关节点的稠密特征和关节点坐标回归，梯度能从关节点坐标回传到稠密特征，使网络能够端到端训练。另外，自适应的权重图使得网络能应对关节点附近深度值缺失、关节点被遮挡或者指间自相似性等复杂问题，增强网络的鲁棒性。大量实验证明了AWR在不同表征形式、输入模态、网络结构等实验设置下的有效性与泛化性，并且在四个公开手部数据集上都达到了state-of-the-art的效果。</p>
+<p><a href="https://www.aaai.org//Papers//AAAI//2020GB//AAAI-HuangW.4059.pdf" target="_blank" rel="noopener">[Paper]</a><br><a href="https://github.com/Elody-07/AWR-Adaptive-Weighting-Regression/edit/master/README.md" target="_blank" rel="noopener">[Code]</a></p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Elody</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://Elody-07.github.io/AWR/">http://Elody-07.github.io/AWR/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Elody-07.github.io">Elody的博客</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AWR/">AWR</a><a class="post-meta__tags" href="/tags/AAAI2020/">AAAI2020</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/PaperReading/"><i class="fa fa-chevron-left">  </i><span>Paper Reading | Hand/Human Pose Estimation</span></a></div><div class="next-post pull-right"><a href="/American Visa/"><span>美签攻略 | B1/B2 商务旅游签|被check</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '469ba2f7e3f141d184ef',
+  clientSecret: 'bd3d0f47672ec65ff080c45634fd09a77ac692b9',
+  repo: 'Elody-07.github.io',
+  owner: 'Elody-07',
+  admin: 'Elody-07',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2017 - 2021 By Elody</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.5.6"></script><script src="/js/fancybox.js?version=1.5.6"></script><script src="/js/sidebar.js?version=1.5.6"></script><script src="/js/copy.js?version=1.5.6"></script><script src="/js/fireworks.js?version=1.5.6"></script><script src="/js/transition.js?version=1.5.6"></script><script src="/js/scroll.js?version=1.5.6"></script><script src="/js/head.js?version=1.5.6"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html>

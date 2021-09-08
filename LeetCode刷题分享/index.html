@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="2022届秋招 | 刷题分享"><meta name="keywords" content="LeetCode"><meta name="author" content="Elody"><meta name="copyright" content="Elody"><title>2022届秋招 | 刷题分享 | Elody的博客</title><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.5.6"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.5.6"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.2/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#刷题初期-——-减少抵触，养成习惯"><span class="toc-text">刷题初期 —— 减少抵触，养成习惯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#刷题上道-——-善于总结，便于回顾"><span class="toc-text">刷题上道 —— 善于总结，便于回顾</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些面试技巧"><span class="toc-text">一些面试技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#我的算法笔记"><span class="toc-text">我的算法笔记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写在最后"><span class="toc-text">写在最后</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527143428.png"></div><div class="author-info__name text-center">Elody</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">9</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">13</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">5</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://raw.githubusercontent.com/Elody-07/PicBed/master/20190527143630.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Elody的博客</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">2022届秋招 | 刷题分享</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-09-08</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/分享/">分享</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+<p>写在前面：我是今年秋招卷算法的一员，经历了几段实习和秋招(等尘埃落定会分享一下)，最大的体验就是刷题重要，但不是最重要的，如果你有足够丰富的论文/竞赛/项目/实习，一般留给编程的时间不多，题目也相对简单，当然也有像微软这种有固定几轮coding的公司，不过也有一些能缓解这种“被人盯着写代码”的压力的面试小技巧。</p>
+</blockquote>
+<a id="more"></a>
+<p>先贴下LeetCode刷题记录，其中比较经典的比如剑指Offer、TopInterview、前两百题刷了至少两遍，虽然总量不能跟大佬们比，但也有一些小小的心得。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Elody-07/PicBed/20210907212720.png" alt></p>
+<h2 id="刷题初期-——-减少抵触，养成习惯"><a href="#刷题初期-——-减少抵触，养成习惯" class="headerlink" title="刷题初期 —— 减少抵触，养成习惯"></a>刷题初期 —— 减少抵触，养成习惯</h2><p>我是研一开始陆陆续续刷题的，当时感觉时间还早，而且我本科不是计算机专业的，刷算法可以说从头开始，所以刚开始的时候非常之煎熬，刷的量也很少，经常一周就刷一两道剑指Offer，也很推荐刚开始的时候先用剑指把大致题目、算法、数据结构做个初步了解，这样后面刷到类似题目的时候抵触情绪会少点。</p>
+<p>刷完剑指后我继续刷LeetCode是从TopInterview这个列表刷起的，刚开始不敢挑战自己，只挑easy，最多来几道medium，就这样第一遍还很多看完题目直接看题解的。刚开始刷题为了减少抵触、挫败的情绪，帮助养成刷题的习惯，我是看完题目自己想几分钟就去看题解，自己做出来的也会看一下题解或者评论里有没有什么有意思的写法。有点搞笑的是，刚开始还挺“追求”一行代码的，现在想想属实没必要哈哈哈，实际写工程代码的时候实现功能是一部分，代码的可读性也是一些公司考察的点~</p>
+<h2 id="刷题上道-——-善于总结，便于回顾"><a href="#刷题上道-——-善于总结，便于回顾" class="headerlink" title="刷题上道 —— 善于总结，便于回顾"></a>刷题上道 —— 善于总结，便于回顾</h2><p>我大概刷了两百题后，开始跟LeetCode上的“每日一题”，也是这个阶段开始见到题目会有“似曾相识”的感觉，是之前做过的题目的衍生题，或者方法、代码极为相近。于是我开始对做过的题进行记录。</p>
+<p>其实刚开始刷题的时候我就有<strong>记录刷过的题</strong>(姑且当做虚荣心作祟hhh，达到50、100、200这种跨越数量级的就很有成就感)，这也是我引以为傲的一个刷题技巧。在这个表中，我会记录每道题的题目、我的解法、题目数据结构、用到的算法、是否需要重刷(取决于第一次有没有一遍过)、一些奇妙的解法和注意点、刷题日期，最后加的ToDo可以在不断回刷的时候掌握进度。</p>
+<p>我比较喜欢的是Notes这一栏，会记录一些自己、他人解法的关键点，后面刷到类似的题目会加个 “Link No.xxx” 字眼，方便在回看的时候顺便对比一下相似题目的不同点与对应的解法。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Elody-07/PicBed/20210907214746.png" alt></p>
+<p>这里我用的是<a href="https://www.notion.so/" target="_blank" rel="noopener">Notion</a>，用一个Table记录，给每道题加上标签后，可以根据标签选择不同的View，这样在复习的时候能很方便地根据数据结构、算法以及难易程度划分。</p>
+<p>在不断刷题的过程中，除了数组、字符串、链表、二叉树这类常见的数据结构，也有并查集、字典树、优先队列这种相对生疏的题目，我的做法是再开一个笔记，记录不熟悉的算法和数据结构(文末附个人笔记)，除了记录一些定义、解法，也会附上题目编号方便复习后及时练手。</p>
+<p>刷到后面相似题目实在比较多的，也会列在这个笔记里。一般来说这个笔记是我笔试、面试前会大致过一遍的，以免遇到“这道题我隐约记得我做过、清楚地记得我没做出来”这种尴尬又遗憾的情况。</p>
+<h2 id="一些面试技巧"><a href="#一些面试技巧" class="headerlink" title="一些面试技巧"></a>一些面试技巧</h2><p>在这里先碎碎念一些面试过程中感觉比较重要的点，后面有需要的话等秋招结束专门写一篇(不过像我这种年终总结拖到第二年年中的人说的话难有说服力，暂且立个flag吧hhh)。很多技巧我之前也不知道，是在微软实习的时候，我的mentor在转正的时候帮我找同事模拟面试过程中，面试官一点点跟我讲的，到现在都觉得受益匪浅。</p>
+<p>面试考察<strong>算法、代码和沟通</strong>，其中算法就靠刷题，代码的话会考察可读性、可维护性和corner case，但是其中最重要的，我觉得是<strong>沟通</strong>。</p>
+<p>即使是专门考察coding的面试，也不完全说你一听完题目、没有思路就完了，一道题即使你一点思路都没有，不知道用什么数据结构表示、听不懂面试官的描述、要考虑的东西太多一时不知道从哪儿着手，你都可以、而且很有必要跟面试官反复交流，可以让面试官给一些例子，如果你自己想到一些corner case不知道面试官期望的答案是什么也要问，在一问一答中体现你的思考，及时纠正错误的思路。</p>
+<p>写之前先向面试官阐述一下你的思路，并且<strong>主动说明算法的时间、空间复杂度</strong>，即使是暴力法也没关系，先询问面试官需不需要进行什么优化，一般会让你先写出来，再继续想优化的思路；写代码的过程中务必想清楚再写，不要有大幅度的删改(这点在线下面试、手写代码的时候更为重要)，如果感觉代码有点繁琐或者时间来不及了，可以问面试官某些步骤可不可以省略，或者一些逻辑简单但代码繁琐的部分，可以写伪代码或者注释。在面试过程中最好不要有超过5分钟的沉默(奋笔写代码除外)，想不出来及时向面试官要线索/要求换个题目。</p>
+<h2 id="我的算法笔记"><a href="#我的算法笔记" class="headerlink" title="我的算法笔记"></a>我的算法笔记</h2><p>在附笔记之前，很想说的是，别人的笔记说的再天花乱坠都是别人的，我也看过很多刷题模板、笔记，要逼着自己去套别人的模板还是挺难受的，所以不必一定要一板一眼照着来，按自己习惯来就好。如果我的笔记能给你带来一点点启发，帮助你梳理，我会感到非常非常开心和荣幸~</p>
+<p><strong>动态规划</strong></p>
+<ul>
+<li>No.62 不同路径</li>
+<li>No.64 最小路径和</li>
+<li>No.174 地下城游戏，逆推有点难想到</li>
+</ul>
+<p><strong>二维动态规划</strong></p>
+<ul>
+<li>No.72 编辑距离</li>
+<li>No.97 交错字符串</li>
+<li>No.115 不同的子序列</li>
+<li>剑指 Offer 60. n个骰子的点数</li>
+</ul>
+<p><strong>桶排序</strong></p>
+<ul>
+<li>No.164 最大间距（也可用基数排序）</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/24895aca0459" target="_blank" rel="noopener">Rabin-Karp算法</a> O(n)时间实现子字符串查找 → 散列(数字表示字符串)+哈希**</p>
+<ul>
+<li>No.187 重复的DNA序列</li>
+<li>No.1044 最长重复子串</li>
+</ul>
+<p><strong>二分法 —— 边界处理</strong></p>
+<ul>
+<li>No.1885 Count Pairs in Two Arrays</li>
+<li>No.33 搜索旋转排序数组；No.81 搜索旋转排序数组 II → 搜索target值</li>
+<li>No.153 寻找旋转排序数组中的最小值；No.154 寻找旋转排序数组中的最小值 II → 搜索最小值</li>
+<li>No.616 给字符串添加加粗标签</li>
+</ul>
+<p><strong>旋转排序数组</strong></p>
+<ul>
+<li>No.33 搜索旋转排序数组；No.81 搜索旋转排序数组 II → 搜索target值</li>
+<li>No.153 寻找旋转排序数组中的最小值；No.154 寻找旋转排序数组中的最小值 II → 搜索最小值</li>
+<li>No.187 旋转数组</li>
+<li>No.61 旋转链表</li>
+<li>No.151 翻转字符串里的单词 No.186 翻转字符串里的单词II</li>
+</ul>
+<p><strong>组合总和</strong></p>
+<ul>
+<li>No.39 组合总和；No.40 组合总和II → 数字可重复/不可重复 → <strong>求具体组合，dfs</strong></li>
+<li>No.377 组合总和IV → 数字可重复 → <strong>求个数，dp</strong></li>
+<li>No.216 组合总和III → 和为 n 的 k 个数之和 → <strong>求具体组合，dfs</strong> / <strong>求个数，dp</strong></li>
+</ul>
+<p><strong>覆盖子串</strong></p>
+<p>求字符串 s 中包含字符串 t 的最小子串</p>
+<ul>
+<li>No.76 最小覆盖子串：可以不按 t 的字符顺序出现 → t_idx == len(t) 时从后向前推</li>
+<li>No.727 最小窗口子序列：按 t 的字符顺序出现 → t_idx == len(t) 时从前向后推</li>
+</ul>
+<p><strong>买卖股票</strong></p>
+<ul>
+<li>No.121 基础版，一次交易，动态规划</li>
+<li>No.122 基础版，无限次交易，贪心</li>
+<li>No.123 升级版，两次交易</li>
+<li>No.188 终极版，k 次交易</li>
+<li><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/solution/5xing-dai-ma-gao-ding-suo-you-gu-piao-ma-j6zo/" target="_blank" rel="noopener"><strong>绝妙题解</strong></a></li>
+</ul>
+<p><strong>硬币问题</strong></p>
+<ul>
+<li>No.322 零钱兑换 → 凑成总金额所需的<strong>最少硬币个数</strong></li>
+<li>No.518 零钱兑换II → 凑成总金额的组合数</li>
+</ul>
+<p><strong>打家劫舍</strong></p>
+<ul>
+<li>No.198 &amp; No.213 基础版，动态规划</li>
+<li>No.337 二叉树</li>
+</ul>
+<p><strong>众数问题——摩尔投票法</strong></p>
+<ul>
+<li>No.169 多数元素 出现次数&gt;n/2 次 → 只有1个</li>
+<li>No.229 求众数II 出现次数&gt;n/3次 → 最多2个(2, 1, 0)</li>
+</ul>
+<p><strong>实现计算器问题</strong> </p>
+<p>确定 stack 和 num 表示什么</p>
+<ul>
+<li>No.224 基本计算器：表达式由加减括号组成，每次遇到 ( ，把之前算好的数放进stack，遇到 ) 再放出来计算，num存储最终结果</li>
+<li>No.227 基本计算器II：表达式由加减乘除组成，stack里存所有数字，乘除法需要取出前一个数字一起计算</li>
+<li>[ ]  No.772 基本计算器III：表达式由加减乘除括号组成</li>
+</ul>
+<p><strong>数组逆序对</strong></p>
+<ul>
+<li>剑指51. 逆序对</li>
+<li><p>No.315 计算右侧小于当前元素的个数<strong>动态规划</strong></p>
+</li>
+<li><p>No.62 不同路径</p>
+</li>
+<li>No.64 最小路径和</li>
+<li>No.174 地下城游戏，逆推有点难想到</li>
+</ul>
+<p><strong>二维动态规划</strong></p>
+<ul>
+<li>No.72 编辑距离</li>
+<li>No.97 交错字符串</li>
+<li>No.115 不同的子序列</li>
+<li>剑指 Offer 60. n个骰子的点数</li>
+</ul>
+<p><strong>并查集 — Disjoint Set</strong></p>
+<ul>
+<li>No.323 无向图中连通分量的数目</li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v=YKE4Vd1ysPI" target="_blank" rel="noopener">视频教程</a></p>
+<p>可用于检测图中是否有环：构建图，根据边的关系不断向图中合并节点，具体操作为找到两个顶点的根节点，让一个根节点指向另一个，即合并两个节点。如果合并的两个节点的根节点相同，说明图中有环。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Union</span><span class="params">(object)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        self.parent = [<span class="number">-1</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(n)]</span><br><span class="line">        self.rank = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(n)]</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">find</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> self.parent[x] != <span class="number">-1</span>:</span><br><span class="line">            x = self.parent[x]</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">union</span><span class="params">(self, x, y)</span>:</span></span><br><span class="line">        rootx = self.find(x)</span><br><span class="line">        rooty = self.find(y)</span><br><span class="line">        <span class="keyword">if</span> rootx == rooty:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> self.rank[rootx] &lt; self.rank[rooty]:</span><br><span class="line">            self.parent[rootx] = rooty</span><br><span class="line">        <span class="keyword">elif</span> self.rank[rooty] &lt; self.rank[rootx]:</span><br><span class="line">            self.parent[rooty] = rootx</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.parent[rootx] = rooty</span><br><span class="line">            self.rank[rooty] += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><strong>字典树/前缀树</strong> </p>
+<ul>
+<li>No.820 单词的压缩编码</li>
+</ul>
+<p>Trie树，又叫字典树、前缀树（Prefix Tree）、单词查找树 或 键树，是一种多叉树结构。通常来说，一个字典树是用来存储字符串的。字典树的每一个节点代表一个字符串（前缀）。每一个节点会有多个子节点，通往不同子节点的路径上有着不同的字符。子节点代表的字符串是由节点本身的原始字符串，以及通往该子节点路径上所有的字符组成的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Elody-07/PicBed/20200408180210.png" alt="https://cdn.jsdelivr.net/gh/Elody-07/PicBed/20200408180210.png"></p>
+<ul>
+<li><p>前缀树的实现</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.children = [<span class="literal">None</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">27</span>)]</span><br><span class="line">        <span class="comment"># 最后一个元素为1表示单词结束</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.root = TrieNode()</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self, word)</span>:</span></span><br><span class="line">        cur = self.root</span><br><span class="line">        isNew = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">for</span> letter <span class="keyword">in</span> word:</span><br><span class="line">            idx = ord(letter)-ord(<span class="string">'a'</span>)</span><br><span class="line">            <span class="keyword">if</span> cur.children[idx] <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                isNew = <span class="literal">True</span> <span class="comment"># important！！！</span></span><br><span class="line">                cur.children[idx] = TrieNode()</span><br><span class="line">            cur = cur.children[idx]</span><br><span class="line">        cur.children[<span class="number">26</span>] = <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> len(word) + <span class="number">1</span> <span class="keyword">if</span> isNew <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, word)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Returns if the word is in the trie.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        cur = self.root</span><br><span class="line">        <span class="keyword">for</span> letter <span class="keyword">in</span> word:</span><br><span class="line">            idx = ord(letter)-ord(<span class="string">'a'</span>)</span><br><span class="line">            <span class="keyword">if</span> cur.children[idx] <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            cur = cur.children[idx]</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Doesn't end here</span></span><br><span class="line">        <span class="keyword">if</span> cur.children[<span class="number">26</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">startsWith</span><span class="params">(self, prefix)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Returns if there is any word in the trie that starts with the given prefix.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        cur = self.root</span><br><span class="line">        <span class="keyword">for</span> letter <span class="keyword">in</span> prefix:</span><br><span class="line">            idx = ord(letter)-ord(<span class="string">'a'</span>)</span><br><span class="line">            <span class="keyword">if</span> cur.children[idx] <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            cur = cur.children[idx]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>拓扑排序</strong></p>
+<ul>
+<li>No.207 课程表；No.210 课程表II</li>
+</ul>
+<p>在图论中，拓扑排序（Topological Sorting）是一个<strong>有向无环图</strong>（DAG, Directed Acyclic Graph）的所有顶点的线性序列，该序列必须满足下面两个条件：1）每个顶点出现且只出现一次；2）若存在一条从顶点 A 到顶点 B 的路径，那么在序列中顶点 A 出现在顶点 B 的前面。有向无环图（DAG）才有拓扑排序，非DAG图没有拓扑排序一说。<br>以下图为例说明拓扑排序的算法：</p>
+<p>1）从图中找到一个没有前驱（入度为0）的顶点；</p>
+<p>2）删除该点和与其相邻的有向边；</p>
+<p>3）重复以上步骤直到图为空或当前图中不存在没有前驱入度为0的顶点（该情况说明图中必然有环，此图不存在拓扑排序）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Elody-07/PicBed/20200408164957.png" alt="https://cdn.jsdelivr.net/gh/Elody-07/PicBed/20200408164957.png"></p>
+<p>拓扑排序可以用BFS或DFS算法实现，其中BFS能够较为直观地知道该图是否为有向无环图以及输出拓扑排序结果，DFS需要定义flag数组，表示该节点是否被访问过、再次访问该节点时与前一次访问是同一个节点（有环）还是不同节点发起的DFS（正常拓扑排序），</p>
+<p><strong>TOP K问题</strong></p>
+<ul>
+<li>No.324 摆动排序 (比较有趣但略复杂的题目)</li>
+</ul>
+<p>在未排序的数组中找到<strong>第 k 个最大</strong>的元素。三种解法：数组排序，快速选择算法，Min-Heap小根堆。</p>
+<p>数组排序</p>
+<p>通过快排对数组排序后，下标为 <code>n-k</code> 的元素即为所求。时间复杂度最好O(nlogn)，最差O(n^2)，<strong>平均O(nlogn)</strong>，<strong>空间复杂度O(logn)</strong></p>
+<p>Min-Heap小根堆</p>
+<p>维护一个k元素的小根堆，遍历数组，当数组元素大于堆顶时，替换堆顶元素，最后的堆顶元素即为第k大的元素，<strong>时间复杂度O(nlogk)，空间复杂度O(k)</strong></p>
+<p>快速选择算法</p>
+<p>基于快速排序算法的优化，要找到第k大的元素，只要保证下标为 <code>n-k</code> 的元素，在它左边的元素都小于它，右边的元素都大于它。故可以用partition算法实现，只要得到的pivot下标为 <code>n-k</code> 即可。时间复杂度最好O(n)，最差O(n^2)，平均O(n)。</p>
+<p><strong>回溯法</strong></p>
+<p>一般可以分为主函数和core函数：<strong>主函数</strong>中检查无效输入，确定递归起点，当起点可以从任一点开始时，主函数加循环；<strong>core函数</strong>中注意判断终止递归的条件，注意勿重复访问，设置visited数组以免进入死循环，并注意core函数return前是否需要重置visited数组。</p>
+<p>不需要重置visited数组，所有元素只访问一次：</p>
+<ul>
+<li>No.13 机器人的运动范围</li>
+</ul>
+<p>包含多个答案，core函数返回前需要重置数组，以免影响其他结果：</p>
+<ul>
+<li><p>No.17 电话号码的字母组合</p>
+</li>
+<li><p>No.46 全排列</p>
+</li>
+<li><p>No.79 单词搜索</p>
+</li>
+<li><p>No.131 分割回文串</p>
+</li>
+</ul>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>每一年都听到周围的人在说今年是xx岗最卷的一年，其实很多时候很多人都会有过动摇，想去最“不卷”的赛道，特别是做CV的人也都知道，僧多粥少，小厂也养不起一个人工智能研究院，仅剩的几个自然挤破了脑袋，所以很多人在秋招前转了开发。但是我就是不甘心吧，从大三开始学的东西让我一时间放弃着实难受，所以我有过压力大到下班骑车回来的路上哭成狗的时候，有一周内海投了八九家公司但是两周、三周过去了都没有被捞起的时候，甚至面试官很寻常的面试改期，在没有面试的那段时间成为压垮我的最后一根稻草。最后也在一次次的打击中不断摆正自己的心态，很想对当初崩溃的自己、对正在或者即将找工作的你们说：</p>
+<p>要接受找实习和找正式工作的难度上的落差；</p>
+<p>要相信自己，不被捞起、面试被拒，很多情况是这家公司HC不够或者根本没有匹配的岗位，而不是你不够优秀；</p>
+<p>面试过程中的问题80%都不会，说明部门业务跟你所学差距很大，与其入职后高强度学习、工作，不如面试的时候就“拒”了它。</p>
+<p>最后，祝我们都有美好的未来~祝各位心想事成~！</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Elody</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://Elody-07.github.io/LeetCode刷题分享/">http://Elody-07.github.io/LeetCode刷题分享/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Elody-07.github.io">Elody的博客</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/LeetCode/">LeetCode</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/PaperReading/"><span>Paper Reading | Hand/Human Pose Estimation</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '469ba2f7e3f141d184ef',
+  clientSecret: 'bd3d0f47672ec65ff080c45634fd09a77ac692b9',
+  repo: 'Elody-07.github.io',
+  owner: 'Elody-07',
+  admin: 'Elody-07',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2017 - 2021 By Elody</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.5.6"></script><script src="/js/fancybox.js?version=1.5.6"></script><script src="/js/sidebar.js?version=1.5.6"></script><script src="/js/copy.js?version=1.5.6"></script><script src="/js/fireworks.js?version=1.5.6"></script><script src="/js/transition.js?version=1.5.6"></script><script src="/js/scroll.js?version=1.5.6"></script><script src="/js/head.js?version=1.5.6"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html>
